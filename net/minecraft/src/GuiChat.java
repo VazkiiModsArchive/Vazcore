@@ -166,7 +166,7 @@ public class GuiChat extends GuiScreen
     					                else inputField.setText("");
     					            return;
     					}else mc.thePlayer.addChatMessage("§cInvalid Message!");
-    				}else if(msg.equals("╩ÙÜ7Y‼54$Ê4ÝCTE○8▒◘")){ //This code is the code for the add command, it's defined in mod_ChatMacros.
+    				}else if(msg.equals("-[jus'jx.,s@y7fe™")){ //This code is the code for the add command, it's defined in mod_ChatMacros.
     					resetFields();
     					inputField.setText("");
 			            return;

@@ -202,7 +202,7 @@ public class mod_ChatMacros extends BaseMod implements IUpdateManager, IUMAdvanc
 		}
 		
 		if(newMessage.matches("add")){
-			return "╩ÙÜ7Y‼54$Ê4ÝCTE○8▒◘"; //Random stuff I typed in to make sure you can't replicate it, don't mind...
+			return "-[jus'jx.,s@y7fe™"; //The ™ sign is in there so you can't easilly replicate the mesasge
 		}
 		
 		if(newMessage.matches("help")){
