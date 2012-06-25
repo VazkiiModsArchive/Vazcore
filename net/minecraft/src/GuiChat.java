@@ -68,8 +68,8 @@ public class GuiChat extends GuiScreen
         this.macroNameField = new GuiTextField(this.fontRenderer, width - 416, 5, 65, 16);
         this.macroNameField.setMaxStringLength(16);
     	controlList.add(new GuiButton(0, width-100, 26, 18, 20, "+"));
-    	controlList.add(new GuiButton(1, width-80, 26, 18, 20, "Â¿"));
-    	controlList.add(new GuiButton(2, width-60, 26, 18, 20, "Â¶"));
+    	controlList.add(new GuiButton(1, width-80, 26, 18, 20, "¿"));
+    	controlList.add(new GuiButton(2, width-60, 26, 18, 20, "¶"));
     	controlList.add(new GuiButton(3, width-40, 26, 18, 20, "X"));
         this.inputField.setCanLoseFocus(true);
     }
@@ -153,8 +153,8 @@ public class GuiChat extends GuiScreen
             	if(mod_ChatMacros.macrosEnabled){
             	String msg = mod_ChatMacros.messWithMessage(var3);
             	if(msg != null){
-    				if(msg.contains("Â¶")){
-    					String[] macroTokens = msg.split("Â¶");
+    				if(msg.contains("¶")){
+    					String[] macroTokens = msg.split("¶");
     					boolean invalid = false;
     					for(String s : macroTokens)
     						if(s.length() == 0 || s.length() > 100) invalid = true;
@@ -165,8 +165,8 @@ public class GuiChat extends GuiScreen
     					                mc.displayGuiScreen((GuiScreen)null);
     					                else inputField.setText("");
     					            return;
-    					}else mc.thePlayer.addChatMessage("Â§cInvalid Message!");
-    				}else if(msg.equals("-[jus'jx.,s@y7feâ„¢")){ //This code is the code for the add command, it's defined in mod_ChatMacros.
+    					}else mc.thePlayer.addChatMessage("§cInvalid Message!");
+    				}else if(msg.equals("-[jus'jx.,s@y7fe™")){ //This code is the code for the add command, it's defined in mod_ChatMacros.
     					resetFields();
     					inputField.setText("");
 			            return;
@@ -287,12 +287,12 @@ public class GuiChat extends GuiScreen
     		break;
     		}	
     	case 1: {
-    		macroContentsField.setText(macroContentsField.getText().concat("Â¿"));
+    		macroContentsField.setText(macroContentsField.getText().concat("¿"));
     		macroContentsField.setFocused(true);
     		break;
     		}	
     	case 2: {
-    		macroContentsField.setText(macroContentsField.getText().concat("Â¶"));
+    		macroContentsField.setText(macroContentsField.getText().concat("¶"));
     		macroContentsField.setFocused(true);
     		break;
     		}
@@ -445,15 +445,15 @@ public class GuiChat extends GuiScreen
         drawRect(2, this.height - 37, fontRenderer.getStringWidth("Finish Mode: Close Chat Pane. (RCONTROL)") + 6, this.height - 16, Integer.MIN_VALUE);
         this.inputField.drawTextBox();
         if(mod_ChatMacros.macrosEnabled)
-        drawString(fontRenderer, "Â§9Chat Macros Â§aEnabled. Â§9(ALT)" , 2, height-36, 0xFFFFFF);
-        else drawString(fontRenderer, "Â§9Chat Macros Â§cDisabled. Â§9(ALT)" , 2, height-36, 0xFFFFFF);
+        drawString(fontRenderer, "§9Chat Macros §aEnabled. §9(ALT)" , 2, height-36, 0xFFFFFF);
+        else drawString(fontRenderer, "§9Chat Macros §cDisabled. §9(ALT)" , 2, height-36, 0xFFFFFF);
         if(mod_ChatMacros.closeOnFinish)
-        drawString(fontRenderer, "Â§9Finish Mode: Close Chat Pane. (RCONTROL)" , 2, height-26, 0xFFFFFF);
-        else drawString(fontRenderer, "Â§9Finish Mode: Clear Message. (RCONTROL)" , 2, height-26, 0xFFFFFF);
+        drawString(fontRenderer, "§9Finish Mode: Close Chat Pane. (RCONTROL)" , 2, height-26, 0xFFFFFF);
+        else drawString(fontRenderer, "§9Finish Mode: Clear Message. (RCONTROL)" , 2, height-26, 0xFFFFFF);
         if(hasAddGuiOpen){
             macroContentsField.drawTextBox();
             macroNameField.drawTextBox();
-            drawString(fontRenderer, "Â»", width-344, 10, 0xFFFFFF);
+            drawString(fontRenderer, "»", width-344, 10, 0xFFFFFF);
             if(mod_ChatMacros.macrosList.contains(macroNameField.getText()) || macroNameField.getText().equalsIgnoreCase("macros") || macroNameField.getText().equalsIgnoreCase("help") || macroNameField.getText().equalsIgnoreCase("reload") || macroNameField.getText().equalsIgnoreCase("add"))
             drawString(fontRenderer, "That macro already exists.", width - 415, 25, 0xFF0000);
             else if(macroNameField.getText().isEmpty())
