@@ -355,7 +355,7 @@ public class GuiChat extends GuiScreen
             this.field_50068_i.clear();
             this.field_50061_e = this.inputField.getText().substring(var1);
             this.field_50059_f = this.field_50061_e.toLowerCase();
-            var2 = ((EntityClientPlayerMP)this.mc.thePlayer).sendQueue.playerNames.iterator();
+            var2 = ((EntityClientPlayerMP)this.mc.thePlayer).sendQueue.playerInfoList.iterator();
 
             while (var2.hasNext())
             {

@@ -21,12 +21,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.TimeZone;
 
-import net.minecraft.src.vazkii.updatemanager.IUMAdvanced;
-import net.minecraft.src.vazkii.updatemanager.IUpdateManager;
-import net.minecraft.src.vazkii.updatemanager.ModType;
-import net.minecraft.src.vazkii.updatemanager.UMCore;
+import vazkii.um.UpdateManagerMod;
 
-public class mod_ChatMacros extends BaseMod implements IUpdateManager, IUMAdvanced {
+public class mod_ChatMacros extends BaseMod {
 
 	static HashMap<String, String> macros = new HashMap();
 	static List<String> macrosList = new LinkedList();
@@ -38,11 +35,10 @@ public class mod_ChatMacros extends BaseMod implements IUpdateManager, IUMAdvanc
 	public static boolean closeOnFinish = true;
 	
 	public String getVersion() {
-		return "by Vazkii. Version [1.1] for 1.2.5";
+		return "by Vazkii. Version [1.1.2] for 1.2.5";
 	}
 
 	public void load() {
-		UMCore.addMod(this);
 		File f = new File(ModLoader.getMinecraftInstance().getAppDir("minecraft"), "Chat Macros.txt");
 			try {
 				if(!f.exists()){
@@ -53,6 +49,7 @@ public class mod_ChatMacros extends BaseMod implements IUpdateManager, IUMAdvanc
 				getProps();
 			} catch (IOException e) {
 			}
+		new UpdateHandler(this);
 	}
 	
 	public static void readMacros(File f) throws IOException {
@@ -340,7 +337,7 @@ public class mod_ChatMacros extends BaseMod implements IUpdateManager, IUMAdvanc
         String username = ModLoader.getMinecraftInstance().thePlayer.username;
         String nameToCheck = "nil";
         NetClientHandler player = ((EntityClientPlayerMP)ModLoader.getMinecraftInstance().thePlayer).sendQueue;
-        List list = player.playerNames;
+        List list = player.playerInfoList;
         Iterator iterator = list.iterator();
         GuiPlayerInfo info = null;
         int time = -1337;
@@ -440,24 +437,32 @@ public class mod_ChatMacros extends BaseMod implements IUpdateManager, IUMAdvanc
 		readMacros(f);
 	}
 
-	public String getModName() {
-		return "Chat Macros";
-	}
+	public class UpdateHandler extends UpdateManagerMod {
 
-	public String getChangelogURL() {
-		return "https://dl.dropbox.com/u/34938401/Mods/On%20Topic/Mods/Chat%20Macros/Changelog.txt";
-	}
+		public UpdateHandler(cpw.mods.fml.common.modloader.BaseMod m) {
+			super(m);
+		}
 
-	public String getUpdateURL() {
-		return "https://dl.dropbox.com/u/34938401/Mods/On%20Topic/Mods/Chat%20Macros/Version.txt";
-	}
+		public String getModName() {
+			return "Chat Macros";
+		}
 
-	public String getModURL() {
-		return "http://www.minecraftforum.net/topic/528166-123-mlforge-vazkiis-mods-ebonapi-last-updated-12512/";
-	}
+		public String getChangelogURL() {
+			return "https://dl.dropbox.com/u/34938401/Mods/On%20Topic/Mods/Chat%20Macros/Changelog.txt";
+		}
 
-	public ModType getModType() {
-		return ModType.UNDEFINED;
+		public String getUpdateURL() {
+			return "https://dl.dropbox.com/u/34938401/Mods/On%20Topic/Mods/Chat%20Macros/Version.txt";
+		}
+
+		public String getModURL() {
+			return "http://www.minecraftforum.net/topic/528166-123-mlforge-vazkiis-mods-ebonapi-last-updated-12512/";
+		}
+		
+		public String getUMVersion(){
+			return "1.1.2";
+		}
+		
 	}
 
 }
