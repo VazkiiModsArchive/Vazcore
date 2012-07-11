@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.TimeZone;
 
+import net.minecraft.client.Minecraft;
+
 import vazkii.um.UpdateManagerMod;
 
 public class mod_ChatMacros extends BaseMod {
@@ -35,10 +37,11 @@ public class mod_ChatMacros extends BaseMod {
 	public static boolean closeOnFinish = true;
 	
 	public String getVersion() {
-		return "by Vazkii. Version [1.1.2] for 1.2.5";
+		return "by Vazkii. Version [1.1.3] for 1.2.5";
 	}
 
 	public void load() {
+		ModLoader.setInGUIHook(this, true, false);
 		File f = new File(ModLoader.getMinecraftInstance().getAppDir("minecraft"), "Chat Macros.txt");
 			try {
 				if(!f.exists()){
@@ -50,6 +53,12 @@ public class mod_ChatMacros extends BaseMod {
 			} catch (IOException e) {
 			}
 		new UpdateHandler(this);
+	}
+	
+	public boolean onTickInGUI(float f, Minecraft mc, GuiScreen g){
+		if(g.getClass() == GuiChat.class)
+			mc.displayGuiScreen(new GuiChatMacros((GuiChat)g));
+		return true;
 	}
 	
 	public static void readMacros(File f) throws IOException {
