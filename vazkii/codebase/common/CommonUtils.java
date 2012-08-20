@@ -23,5 +23,12 @@ public class CommonUtils {
 	public static Side getSide() {
 		return FMLCommonHandler.instance().getSidedDelegate().getSide();
 	}
-
+	
+	public static int parseHexString(String stringToParse){
+		return Integer.parseInt(stringToParse, 16);
+	}
+	
+	public static boolean flipBoolean(boolean b){
+		return !b;
+	}
 }

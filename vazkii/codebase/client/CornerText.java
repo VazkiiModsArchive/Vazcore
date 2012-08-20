@@ -7,6 +7,7 @@ import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
 import vazkii.codebase.common.CommonUtils;
+import vazkii.codebase.common.VazcoreReference;
 
 public final class CornerText {
 
@@ -38,7 +39,7 @@ public final class CornerText {
 		GL11.glDisable(GL11.GL_DEPTH_TEST);
 		for (CornerTextEntry entry : updateCornerText()) {
 			mc.fontRenderer.drawStringWithShadow(entry.text, x, y, entry.color);
-			y += 14;
+			y += VazcoreReference.CORNER_TEXT_ENTRY_SIZE;
 		}
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
