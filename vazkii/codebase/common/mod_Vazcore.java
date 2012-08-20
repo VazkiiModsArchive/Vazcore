@@ -19,7 +19,7 @@ import cpw.mods.fml.common.registry.TickRegistry;
 	
 	@Init
 	public void onInit(FMLInitializationEvent event) {
-		if (CommonUtils.getSide() == Side.CLIENT) clientInit();
+		if (CommonUtils.getSide().isClient()) clientInit();
 		else serverInit();
 
 		new VazcoreUpdateHandler(ModConverter.getMod(getClass()));

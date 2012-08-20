@@ -20,12 +20,12 @@ public class VazcoreUpdateHandler extends VazkiiUpdateHandler {
 
 	@Override
 	public String getUpdateURL() {
-		return "https://dl.dropbox.com/u/34938401/Mods/On%20Topic/Mods/VazCore/Version.txt";
+		return VazcoreReference.UPDATE_URL;
 	}
 
 	@Override
 	public String getChangelogURL() {
-		return "https://dl.dropbox.com/u/34938401/Mods/On%20Topic/Mods/VazCore/Changelog.txt";
+		return VazcoreReference.CHANGELOG_URL;
 	}
 
 	@Override
