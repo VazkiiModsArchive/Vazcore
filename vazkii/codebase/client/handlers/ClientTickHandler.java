@@ -37,7 +37,7 @@ public class ClientTickHandler implements ITickHandler {
 	public void onRenderTick(Object... tickData) {
 		++renderTicksElapsed;
 		
-		CornerText.onTick();
+		CornerText.onTick((Float)tickData[0]);
 	}
 
 }

@@ -17,11 +17,11 @@ public final class CornerText {
 		return cornerTextHandlers.add(handler);
 	}
 
-	private static List<CornerTextEntry> updateCornerText() {
+	private static List<CornerTextEntry> updateCornerText(float partialTicks) {
 		List<CornerTextEntry> foundEntries = new LinkedList();
 
 		for (ICornerTextHandler handler : cornerTextHandlers) {
-			List<CornerTextEntry> handlerEntries = handler.updateCornerText();
+			List<CornerTextEntry> handlerEntries = handler.updateCornerText(partialTicks);
 
 			if (handlerEntries != null && !handlerEntries.isEmpty()) foundEntries.addAll(handlerEntries);
 		}
@@ -29,7 +29,7 @@ public final class CornerText {
 		return foundEntries;
 	}
 
-	public static void onTick() {
+	public static void onTick(float partialTicks) {
 		Minecraft mc = CommonUtils.getMc();
 
 		int y = 2;
@@ -37,7 +37,7 @@ public final class CornerText {
 
 		GL11.glPushMatrix();
 		GL11.glDisable(GL11.GL_DEPTH_TEST);
-		for (CornerTextEntry entry : updateCornerText()) {
+		for (CornerTextEntry entry : updateCornerText(partialTicks)) {
 			mc.fontRenderer.drawStringWithShadow(entry.text, x, y, entry.color);
 			y += VazcoreReference.CORNER_TEXT_ENTRY_SIZE;
 		}

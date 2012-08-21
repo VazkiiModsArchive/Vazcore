@@ -22,7 +22,6 @@ public class IOUtils {
 	}
 	
 	public static File createAndGetNBTFile(File f){
-		System.out.println("file " + f);
 		try {
 			CompressedStreamTools.readCompressed(new FileInputStream(f));
 		} catch (Exception e) {

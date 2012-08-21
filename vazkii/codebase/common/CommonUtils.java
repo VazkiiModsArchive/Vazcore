@@ -1,7 +1,12 @@
 package vazkii.codebase.common;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.Entity;
+import net.minecraft.src.EntityList;
 import vazkii.um.common.UpdateManager;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Side;
@@ -30,5 +35,15 @@ public class CommonUtils {
 	
 	public static boolean flipBoolean(boolean b){
 		return !b;
+	}
+	
+	public static String getEntityName(Entity entity){
+		return EntityList.getEntityString(entity);
+	}
+	
+	public static <T> LinkedList<T> listOf(T instance){
+		LinkedList<T> l = (new LinkedList());
+		l.add(instance);
+		return l;
 	}
 }
