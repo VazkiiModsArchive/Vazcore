@@ -23,14 +23,14 @@ public class IOUtils {
 
 		vazkiiFolder.mkdirs();
 	}
-	
+
 	public static File getWorldDir(World world) {
 		try {
 			ISaveHandler worldsaver = world.getSaveHandler();
 			IChunkLoader loader = worldsaver.getChunkLoader(world.provider);
-			File file = ReflectionHelper.<File, AnvilChunkLoader>getPrivateValue(AnvilChunkLoader.class, (AnvilChunkLoader)loader, 3);
+			File file = ReflectionHelper.<File, AnvilChunkLoader> getPrivateValue(AnvilChunkLoader.class, (AnvilChunkLoader) loader, 3);
 			return file.getName().contains("DIM") ? file.getParentFile() : file;
-		} catch(Exception e) {
+		} catch (Exception e) {
 			return null;
 		}
 	}
@@ -77,7 +77,7 @@ public class IOUtils {
 	public static File getCacheFile(EnumVazkiiMods mod) {
 		return createAndGetNBTFile(createAndGetFile(new File(new File(getVazkiiFolder(getMcDir()), "/cache"), String.format("%s.dat", mod.getFileName()))));
 	}
-	
+
 	public static File getWorldCacheFile(EnumVazkiiMods mod, World world) {
 		return createAndGetNBTFile(createAndGetFile(new File(new File(getVazkiiFolder(getWorldDir(world)), "/cache"), String.format("%s.dat", mod.getFileName()))));
 	}
