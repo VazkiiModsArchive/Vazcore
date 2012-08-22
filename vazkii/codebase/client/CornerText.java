@@ -3,9 +3,10 @@ package vazkii.codebase.client;
 import java.util.LinkedList;
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
+
 import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.Minecraft;
 import vazkii.codebase.common.CommonUtils;
 import vazkii.codebase.common.VazcoreReference;
 

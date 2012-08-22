@@ -10,7 +10,7 @@ public class ClientTickHandler implements ITickHandler {
 
 	public static int clientTicksElapsed = 0;
 	public static int renderTicksElapsed = 0;
-	
+
 	@Override
 	public void tickStart(EnumSet<TickType> type, Object... tickData) {}
 
@@ -36,8 +36,8 @@ public class ClientTickHandler implements ITickHandler {
 
 	public void onRenderTick(Object... tickData) {
 		++renderTicksElapsed;
-		
-		CornerText.onTick((Float)tickData[0]);
+
+		CornerText.onTick((Float) tickData[0]);
 	}
 
 }

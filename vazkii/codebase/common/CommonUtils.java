@@ -1,7 +1,6 @@
 package vazkii.codebase.common;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
@@ -28,21 +27,21 @@ public class CommonUtils {
 	public static Side getSide() {
 		return FMLCommonHandler.instance().getSidedDelegate().getSide();
 	}
-	
-	public static int parseHexString(String stringToParse){
+
+	public static int parseHexString(String stringToParse) {
 		return Integer.parseInt(stringToParse, 16);
 	}
-	
-	public static boolean flipBoolean(boolean b){
+
+	public static boolean flipBoolean(boolean b) {
 		return !b;
 	}
-	
-	public static String getEntityName(Entity entity){
+
+	public static String getEntityName(Entity entity) {
 		return EntityList.getEntityString(entity);
 	}
-	
-	public static <T> LinkedList<T> listOf(T instance){
-		LinkedList<T> l = (new LinkedList());
+
+	public static <T> LinkedList<T> listOf(T instance) {
+		LinkedList<T> l = new LinkedList();
 		l.add(instance);
 		return l;
 	}
