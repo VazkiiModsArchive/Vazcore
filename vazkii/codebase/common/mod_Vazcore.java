@@ -9,9 +9,10 @@ import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.TickRegistry;
 
-@Mod(modid = "vazcore_Vazkii", name = "Vazcore", version = "by Vazkii. Version [1.0] for 1.3.2.") public class mod_Vazcore {
+@Mod(modid = "vazcore_Vaz", name = "Vazcore", version = "by Vazkii. Version [1.0] for 1.3.2.") public class mod_Vazcore {
 
 	@PreInit
 	public void onPreInit(FMLPreInitializationEvent event) {
