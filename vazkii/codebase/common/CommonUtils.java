@@ -9,6 +9,7 @@ import net.minecraft.src.EntityList;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.Packet3Chat;
 import net.minecraftforge.common.EnumHelper;
 import vazkii.um.common.UpdateManager;
@@ -109,5 +110,9 @@ public class CommonUtils {
 		entity.motionY = 0;
 		entity.motionZ = -entity.motionZ;
 	}
+	
+    public static boolean areStacksEqualIgnoreSize(ItemStack stack1, ItemStack stack2) {
+        return stack1.itemID == stack2.itemID && (stack1.getItemDamage() == stack2.getItemDamage() || stack1.getItemDamage() == -1 || stack2.getItemDamage() == -1);
+    }
 
 }

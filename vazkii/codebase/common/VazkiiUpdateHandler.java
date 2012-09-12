@@ -12,7 +12,7 @@ public abstract class VazkiiUpdateHandler extends UpdateManagerMod {
 
 	@Override
 	public String getModURL() {
-		return "http://www.minecraftforum.net/topic/528166-125-forge-vazkiis-mods-1-year-anniversary-last-updated-11712/";
+		return VazcoreReference.VAZKII_MODS_URL;
 	}
 
 	@Override
