@@ -15,6 +15,7 @@ import net.minecraftforge.common.EnumHelper;
 import vazkii.um.common.UpdateManager;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class CommonUtils {
@@ -25,6 +26,7 @@ public class CommonUtils {
 		return UpdateManager.online;
 	}
 
+	@SideOnly(Side.CLIENT)
 	public static Minecraft getMc() {
 		return Minecraft.getMinecraft();
 	}

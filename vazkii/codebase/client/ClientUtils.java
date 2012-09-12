@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityClientPlayerMP;
+import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.GuiPlayerInfo;
 import net.minecraft.src.MovingObjectPosition;
 import net.minecraft.src.NetClientHandler;
@@ -18,7 +19,7 @@ import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class ClientUtils {
 
-	public static EntityClientPlayerMP getClientPlayer() {
+	public static EntityPlayer getClientPlayer() {
 		return CommonUtils.getMc().thePlayer;
 	}
 
@@ -33,9 +34,9 @@ public class ClientUtils {
 	}
 
 	public static String getPing() {
-		EntityClientPlayerMP player = getClientPlayer();
+		EntityPlayer player = getClientPlayer();
 		String username = player.username;
-		NetClientHandler clientHandler = player.sendQueue;
+		NetClientHandler clientHandler = ((EntityClientPlayerMP)player).sendQueue;
 		List<GuiPlayerInfo> playerList = clientHandler.playerInfoList;
 		int time = -1;
 

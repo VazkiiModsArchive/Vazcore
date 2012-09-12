@@ -66,7 +66,6 @@ public class IOUtils {
 	}
 
 	public static File getMcDir(String dir) {
-		CommonUtils.getMc();
 		return CommonUtils.getSide() == Side.CLIENT ? Minecraft.getAppDir("minecraft" + dir) : new File(dir.length() == 0 ? "." : dir.substring(1));
 	}
 
