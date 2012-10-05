@@ -10,12 +10,12 @@ import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EntityPlayerMP;
 import net.minecraft.src.ItemStack;
+import net.minecraft.src.MathHelper;
 import net.minecraft.src.Packet3Chat;
 import net.minecraftforge.common.EnumHelper;
 import vazkii.um.common.UpdateManager;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class CommonUtils {
@@ -26,7 +26,6 @@ public class CommonUtils {
 		return UpdateManager.online;
 	}
 
-	@SideOnly(Side.CLIENT)
 	public static Minecraft getMc() {
 		return Minecraft.getMinecraft();
 	}
@@ -47,8 +46,13 @@ public class CommonUtils {
 		return !b;
 	}
 
+	/**
+	 * Deprecated for method already being in the minecraft code, no need for
+	 * duplicates right? Since 1.0.5.
+	 */
+	@Deprecated
 	public static int nextIntMinMax(int min, int max) {
-		return rand.nextInt(max - min) + 1 + min;
+		return MathHelper.getRandomIntegerInRange(new Random(), min, max);
 	}
 
 	public static String getEntityName(Entity entity) {
@@ -71,11 +75,11 @@ public class CommonUtils {
 		EnumHelper.addArmorMaterial(name, maxDamageFactor, damageReductionAmounts, enchantability);
 	}
 
-	public static <C extends Enum> C getEnumConstant(String name, Class<? extends C> clazz) {
+	public static <C extends Enum<C>> C getEnumConstant(String name, Class<? extends C> clazz) {
 		for (C constant : clazz.getEnumConstants())
 			if (constant.name().matches(name)) return constant;
 
-				return null;
+		return null;
 	}
 
 	public static void sendChatMessage(EntityPlayer player, String message) {
@@ -112,9 +116,9 @@ public class CommonUtils {
 		entity.motionY = 0;
 		entity.motionZ = -entity.motionZ;
 	}
-	
-    public static boolean areStacksEqualIgnoreSize(ItemStack stack1, ItemStack stack2) {
-        return stack1.itemID == stack2.itemID && (stack1.getItemDamage() == stack2.getItemDamage() || stack1.getItemDamage() == -1 || stack2.getItemDamage() == -1);
-    }
+
+	public static boolean areStacksEqualIgnoreSize(ItemStack stack1, ItemStack stack2) {
+		return stack1.itemID == stack2.itemID && (stack1.getItemDamage() == stack2.getItemDamage() || stack1.getItemDamage() == -1 || stack2.getItemDamage() == -1);
+	}
 
 }

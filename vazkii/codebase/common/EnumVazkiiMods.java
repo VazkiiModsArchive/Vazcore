@@ -1,6 +1,7 @@
 package vazkii.codebase.common;
 
-public enum EnumVazkiiMods {
+public enum EnumVazkiiMods
+{
 
 	VAZCORE("core", "VazCore"), EBON("ebon", "The Ebon Mod"), RECALL("recall", "Recall"), EASYFPS("easyfps", "EasyFPS"), HEALTH_BARS("healthbars", "Health Bars"), CHAT_MACROS("chatmacros", "Chat Macros");
 

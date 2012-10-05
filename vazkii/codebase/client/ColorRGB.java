@@ -1,6 +1,6 @@
 package vazkii.codebase.client;
 
-import org.lwjgl.opengl.GL11;
+import net.minecraft.src.Tessellator;
 
 public final class ColorRGB {
 
@@ -14,7 +14,8 @@ public final class ColorRGB {
 		this.blue = blue;
 	}
 
-	@Override public String toString() {
+	@Override
+	public String toString() {
 		return toHex(getRed()) + toHex(getGreen()) + toHex(getBlue());
 	}
 
@@ -46,8 +47,12 @@ public final class ColorRGB {
 		return i > 255 ? 255 : i < 0 ? 0 : i;
 	}
 
-	public void colorize() {
-		GL11.glColor3d(getRed(), getGreen(), getBlue());
+	public void colorizeTessellator(Tessellator tessellator) {
+		colorizeTessellator(tessellator, 255);
+	}
+
+	public void colorizeTessellator(Tessellator tessellator, int alpha) {
+		tessellator.setColorRGBA(getRed(), getGreen(), getBlue(), alpha);
 	}
 
 	public static String toHex(int i) {

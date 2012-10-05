@@ -36,7 +36,7 @@ public class ClientUtils {
 	public static String getPing() {
 		EntityPlayer player = getClientPlayer();
 		String username = player.username;
-		NetClientHandler clientHandler = ((EntityClientPlayerMP)player).sendQueue;
+		NetClientHandler clientHandler = ((EntityClientPlayerMP) player).sendQueue;
 		List<GuiPlayerInfo> playerList = clientHandler.playerInfoList;
 		int time = -1;
 
@@ -82,8 +82,7 @@ public class ClientUtils {
 							lookedEntity = entity;
 							minDistance = 0.0D;
 						}
-					}
-					else if (interceptPosition != null) {
+					} else if (interceptPosition != null) {
 						double distanceToEntity = positionVector.distanceTo(interceptPosition.hitVec);
 
 						if (distanceToEntity < minDistance || minDistance == 0.0D) {
