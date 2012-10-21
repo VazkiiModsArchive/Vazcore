@@ -11,7 +11,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.TickRegistry;
 
-@Mod(modid = "vazcore_Vaz", name = "Vazcore", version = "by Vazkii. Version [1.0.5] for 1.3.2.")
+@Mod(modid = "vazcore_Vaz", name = "Vazcore", version = "by Vazkii. Version [1.0.5.1] for 1.3.2.")
 public class mod_Vazcore {
 
 	@PreInit
