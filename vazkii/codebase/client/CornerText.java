@@ -3,12 +3,11 @@ package vazkii.codebase.client;
 import java.util.LinkedList;
 import java.util.List;
 
-import net.minecraft.client.Minecraft;
-
 import org.lwjgl.opengl.GL11;
 
 import vazkii.codebase.common.CommonUtils;
 import vazkii.codebase.common.VazcoreReference;
+import net.minecraft.client.Minecraft;
 
 public final class CornerText {
 

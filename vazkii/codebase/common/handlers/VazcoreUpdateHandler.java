@@ -1,10 +1,12 @@
 package vazkii.codebase.common.handlers;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.ItemStack;
+import updatemanager.client.ModType;
 import vazkii.codebase.common.VazcoreReference;
 import vazkii.codebase.common.VazkiiUpdateHandler;
-import vazkii.um.client.ModType;
+
+import net.minecraft.src.Block;
+import net.minecraft.src.ItemStack;
+
 import cpw.mods.fml.common.Mod;
 
 public class VazcoreUpdateHandler extends VazkiiUpdateHandler {

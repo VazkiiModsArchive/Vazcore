@@ -3,7 +3,10 @@ package vazkii.codebase.client;
 import java.util.List;
 import java.util.Set;
 
+import vazkii.codebase.common.CommonUtils;
+import vazkii.healthbars.client.HealthBarsConfig;
 import net.minecraft.client.Minecraft;
+
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityClientPlayerMP;
@@ -13,8 +16,7 @@ import net.minecraft.src.MovingObjectPosition;
 import net.minecraft.src.NetClientHandler;
 import net.minecraft.src.Vec3;
 import net.minecraft.src.WorldClient;
-import vazkii.codebase.common.CommonUtils;
-import vazkii.healthbars.client.HealthBarsConfig;
+
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class ClientUtils {

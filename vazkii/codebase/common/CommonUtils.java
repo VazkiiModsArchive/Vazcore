@@ -2,8 +2,10 @@ package vazkii.codebase.common;
 
 import java.util.Random;
 
+import updatemanager.common.UpdateManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
+
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityList;
 import net.minecraft.src.EntityLiving;
@@ -12,11 +14,13 @@ import net.minecraft.src.EntityPlayerMP;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.Packet3Chat;
-import net.minecraftforge.common.EnumHelper;
-import vazkii.um.common.UpdateManager;
+import net.minecraft.src.World;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.relauncher.ReflectionHelper;
+
+import net.minecraftforge.common.EnumHelper;
 
 public class CommonUtils {
 
@@ -24,6 +28,10 @@ public class CommonUtils {
 
 	public static boolean isOnline() {
 		return UpdateManager.online;
+	}
+
+	public static boolean getGameRule(World world, String gameRule) {
+		return world.func_82736_K().func_82766_b(gameRule);
 	}
 
 	public static Minecraft getMc() {
@@ -79,7 +87,7 @@ public class CommonUtils {
 		for (C constant : clazz.getEnumConstants())
 			if (constant.name().matches(name)) return constant;
 
-		return null;
+				return null;
 	}
 
 	public static void sendChatMessage(EntityPlayer player, String message) {
@@ -91,7 +99,7 @@ public class CommonUtils {
 			Packet3Chat chatPacket = new Packet3Chat(message);
 			EntityPlayerMP mpPlayer = getServer().getConfigurationManager().getPlayerForUsername(player.username);
 
-			if (player != null) mpPlayer.serverForThisPlayer.sendPacketToPlayer(chatPacket);
+			if (player != null) mpPlayer.playerNetServerHandler.sendPacketToPlayer(chatPacket);
 		}
 	}
 

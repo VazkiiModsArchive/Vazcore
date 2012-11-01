@@ -1,7 +1,8 @@
 package vazkii.codebase.common;
 
-import vazkii.um.common.UpdateManager;
-import vazkii.um.common.UpdateManagerMod;
+import updatemanager.common.UpdateManager;
+import updatemanager.common.UpdateManagerMod;
+
 import cpw.mods.fml.common.Mod;
 
 public abstract class VazkiiUpdateHandler extends UpdateManagerMod {
