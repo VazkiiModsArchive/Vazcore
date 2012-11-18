@@ -3,7 +3,10 @@ package vazkii.codebase.client;
 import java.util.List;
 import java.util.Set;
 
+import vazkii.codebase.common.CommonUtils;
+import vazkii.healthbars.client.HealthBarsConfig;
 import net.minecraft.client.Minecraft;
+
 import net.minecraft.src.AxisAlignedBB;
 import net.minecraft.src.Entity;
 import net.minecraft.src.EntityClientPlayerMP;
@@ -13,8 +16,7 @@ import net.minecraft.src.MovingObjectPosition;
 import net.minecraft.src.NetClientHandler;
 import net.minecraft.src.Vec3;
 import net.minecraft.src.WorldClient;
-import vazkii.codebase.common.CommonUtils;
-import vazkii.healthbars.client.HealthBarsConfig;
+
 import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class ClientUtils {
@@ -36,7 +38,7 @@ public class ClientUtils {
 	public static String getPing() {
 		EntityPlayer player = getClientPlayer();
 		String username = player.username;
-		NetClientHandler clientHandler = ((EntityClientPlayerMP)player).sendQueue;
+		NetClientHandler clientHandler = ((EntityClientPlayerMP) player).sendQueue;
 		List<GuiPlayerInfo> playerList = clientHandler.playerInfoList;
 		int time = -1;
 
@@ -82,8 +84,7 @@ public class ClientUtils {
 							lookedEntity = entity;
 							minDistance = 0.0D;
 						}
-					}
-					else if (interceptPosition != null) {
+					} else if (interceptPosition != null) {
 						double distanceToEntity = positionVector.distanceTo(interceptPosition.hitVec);
 
 						if (distanceToEntity < minDistance || minDistance == 0.0D) {

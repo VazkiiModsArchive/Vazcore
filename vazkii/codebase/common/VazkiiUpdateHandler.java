@@ -1,7 +1,9 @@
 package vazkii.codebase.common;
 
-import vazkii.um.common.UpdateManager;
-import vazkii.um.common.UpdateManagerMod;
+import updatemanager.common.UpdateManager;
+import updatemanager.common.UpdateManagerMod;
+import updatemanager.common.checking.CheckingMethod;
+
 import cpw.mods.fml.common.Mod;
 
 public abstract class VazkiiUpdateHandler extends UpdateManagerMod {
@@ -13,6 +15,11 @@ public abstract class VazkiiUpdateHandler extends UpdateManagerMod {
 	@Override
 	public String getModURL() {
 		return VazcoreReference.VAZKII_MODS_URL;
+	}
+
+	@Override
+	public CheckingMethod getCheckingMethod() {
+		return CheckingMethod.LEXICOGRAPHICAL;
 	}
 
 	@Override

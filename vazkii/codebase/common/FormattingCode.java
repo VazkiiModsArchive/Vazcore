@@ -1,6 +1,7 @@
 package vazkii.codebase.common;
 
-public enum FormattingCode {
+public enum FormattingCode
+{
 
 	RANDOM('k'), BOLD('l'), STRIKE('m'), UNDERLINE('n'), ITALICS('o'), RESET('r');
 
